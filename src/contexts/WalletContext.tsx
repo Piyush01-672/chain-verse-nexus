@@ -1,11 +1,14 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { BrowserProvider, Contract, Eip1193Provider } from "ethers";
-import { toast } from "@/components/ui/sonner";
+import { BrowserProvider, Eip1193Provider } from "ethers";
+import { toast } from "sonner";
 
 declare global {
   interface Window {
-    ethereum?: Eip1193Provider;
+    ethereum?: Eip1193Provider & {
+      on: (event: string, handler: (...args: any[]) => void) => void;
+      removeListener: (event: string, handler: (...args: any[]) => void) => void;
+    };
   }
 }
 
@@ -64,11 +67,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
 
   const connectWallet = async () => {
     if (!window.ethereum) {
-      toast({
-        title: "Wallet not found",
-        description: "Please install MetaMask or another Ethereum wallet",
-        variant: "destructive",
-      });
+      toast.error("Wallet not found. Please install MetaMask or another Ethereum wallet");
       return;
     }
 
@@ -84,17 +83,10 @@ export function WalletProvider({ children }: { children: ReactNode }) {
       
       localStorage.setItem("walletAddress", accounts[0]);
       
-      toast({
-        title: "Wallet connected",
-        description: `Connected to ${shortenAddress(accounts[0])}`,
-      });
+      toast.success(`Wallet connected: ${shortenAddress(accounts[0])}`);
     } catch (error) {
       console.error("Error connecting wallet:", error);
-      toast({
-        title: "Connection failed",
-        description: "Could not connect to your wallet",
-        variant: "destructive",
-      });
+      toast.error("Could not connect to your wallet");
     } finally {
       setIsConnecting(false);
     }
@@ -105,10 +97,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     setProvider(null);
     setChainId(null);
     localStorage.removeItem("walletAddress");
-    toast({
-      title: "Wallet disconnected",
-      description: "Your wallet has been disconnected",
-    });
+    toast.info("Your wallet has been disconnected");
   };
 
   return (
