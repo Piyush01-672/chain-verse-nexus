@@ -61,6 +61,30 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom ChainVerse Nexus colors
+				chain: {
+					purple: {
+						light: '#9b87f5',
+						DEFAULT: '#7E69AB',
+						dark: '#6E59A5'
+					},
+					blue: {
+						light: '#33C3F0',
+						DEFAULT: '#0EA5E9',
+						dark: '#0C4A6E'
+					},
+					teal: {
+						light: '#5EEAD4',
+						DEFAULT: '#14B8A6',
+						dark: '#0F766E'
+					},
+					background: {
+						dark: '#1A1F2C',
+						DEFAULT: '#22283C',
+						light: '#2A3349'
+					},
+					accent: '#D946EF'
 				}
 			},
 			borderRadius: {
