@@ -22,12 +22,14 @@ export function HeroSection() {
             all in one powerful, intuitive interface.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-            <Button size="lg" className="animate-float">
+           <a href="./chains" > <Button size="lg" className="animate-float">
               Explore Networks
             </Button>
-            <Button size="lg" variant="outline" className="animate-float" style={{ animationDelay: "0.2s" }}>
+            </a>
+            <a href="./nft-gallery" ><Button size="lg"  variant="outline" className="animate-float" style={{ animationDelay: "0.2s" }}>
               Browse NFT Gallery
             </Button>
+            </a>
           </div>
         </div>
       </div>

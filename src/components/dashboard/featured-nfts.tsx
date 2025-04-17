@@ -31,7 +31,7 @@ const DEMO_NFTS = [
     id: "4",
     name: "Cybernetic Vision #7",
     creator: "FutureScapes",
-    image: "https://images.unsplash.com/photo-1633599742595-19527c764a66?q=80&w=2670&auto=format&fit=crop",
+    image: "https://th.bing.com/th/id/OIP.8ujP8kkC4QG_JXFZTA8T7wHaHa?w=176&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     price: 1.85,
     likes: 176
   }

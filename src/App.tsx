@@ -13,12 +13,15 @@ import ChainExplorer from "./pages/ChainExplorer";
 const queryClient = new QueryClient();
 
 const App = () => (
+  
   <QueryClientProvider client={queryClient}>
+    
     <TooltipProvider>
       <WalletProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter>
+        
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/nft-gallery" element={<NFTGallery />} />

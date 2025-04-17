@@ -14,6 +14,8 @@ const NotFound = () => {
       location.pathname
     );
   }, [location.pathname]);
+  
+
 
   return (
     <div className="min-h-screen flex flex-col">

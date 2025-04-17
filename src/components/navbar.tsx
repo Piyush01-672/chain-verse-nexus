@@ -34,18 +34,7 @@ export function Navbar() {
             >
               Chain Explorer
             </a>
-            <a
-              href="/transactions"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              Transactions
-            </a>
-            <a
-              href="/insights"
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              Market Insights
-            </a>
+           
           </nav>
         </div>
         <Button variant="outline" size="icon" className="mr-2 md:hidden">
