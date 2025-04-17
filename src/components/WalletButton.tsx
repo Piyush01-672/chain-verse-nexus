@@ -1,6 +1,5 @@
-
 import { Button } from "@/components/ui/button";
-import { Wallet, LogOut, Loader2, SwapHorizontal } from "lucide-react";
+import { Wallet, LogOut, Loader2, ArrowRightLeft } from "lucide-react";
 import { useWallet, shortenAddress } from "@/contexts/WalletContext";
 import {
   DropdownMenu,
@@ -100,7 +99,7 @@ export function WalletButton() {
           className="cursor-pointer"
           onClick={switchAccount}
         >
-          <SwapHorizontal className="h-4 w-4 mr-2" />
+          <ArrowRightLeft className="h-4 w-4 mr-2" />
           Switch Account
         </DropdownMenuItem>
         <DropdownMenuItem 
