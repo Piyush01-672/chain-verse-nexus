@@ -1,5 +1,5 @@
 
-import { NFTCard } from "@/components/ui/nft-card";
+import { NFTBuyCard } from "@/components/ui/nft-buy-card";
 
 // Sample NFT data - in a real app this would come from an API
 const DEMO_NFTS = [
@@ -51,13 +51,9 @@ export function FeaturedNFTs() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {DEMO_NFTS.map((nft) => (
-          <NFTCard
+          <NFTBuyCard
             key={nft.id}
-            name={nft.name}
-            creator={nft.creator}
-            image={nft.image}
-            price={nft.price}
-            likes={nft.likes}
+            nft={nft}
           />
         ))}
       </div>

@@ -1,8 +1,9 @@
 
 import { Navbar } from "@/components/navbar";
-import { NFTCard } from "@/components/ui/nft-card";
+import { NFTBuyCard } from "@/components/ui/nft-buy-card";
 import { Button } from "@/components/ui/button";
 import { Filter, Grid, LayoutGrid } from "lucide-react";
+import { MyNFTs } from "@/components/my-nfts";
 
 // Expanded NFT gallery data
 const GALLERY_NFTS = [
@@ -77,40 +78,39 @@ const NFTGallery = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1 container py-10">
-        <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <h1 className="text-3xl font-bold tracking-tight">NFT Gallery</h1>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Filter className="h-4 w-4" />
-                <span>Filter</span>
-              </Button>
-              <div className="flex items-center rounded-md border">
-                <Button variant="ghost" size="icon" className="rounded-r-none">
-                  <Grid className="h-4 w-4" />
+        <div className="space-y-10">
+          {/* My NFTs Section */}
+          <MyNFTs />
+          
+          {/* Available NFTs Section */}
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <h1 className="text-3xl font-bold tracking-tight">Available NFTs</h1>
+              <div className="flex items-center gap-2">
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Filter className="h-4 w-4" />
+                  <span>Filter</span>
                 </Button>
-                <Button variant="ghost" size="icon" className="rounded-l-none">
-                  <LayoutGrid className="h-4 w-4" />
-                </Button>
+                <div className="flex items-center rounded-md border">
+                  <Button variant="ghost" size="icon" className="rounded-r-none">
+                    <Grid className="h-4 w-4" />
+                  </Button>
+                  <Button variant="ghost" size="icon" className="rounded-l-none">
+                    <LayoutGrid className="h-4 w-4" />
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {GALLERY_NFTS.map((nft) => (
-              <NFTCard
-                key={nft.id}
-                name={nft.name}
-                creator={nft.creator}
-                image={nft.image}
-                price={nft.price}
-                likes={nft.likes}
-              />
-            ))}
-          </div>
-          
-          <div className="flex justify-center mt-10">
-            <Button variant="outline">Load More</Button>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {GALLERY_NFTS.map((nft) => (
+                <NFTBuyCard key={nft.id} nft={nft} />
+              ))}
+            </div>
+            
+            <div className="flex justify-center mt-10">
+              <Button variant="outline">Load More</Button>
+            </div>
           </div>
         </div>
       </main>
