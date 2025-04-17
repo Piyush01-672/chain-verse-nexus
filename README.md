@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+# 🖼️ CHAIN VERSE NEXUS
 
-## Project info
+A decentralized NFT (Non-Fungible Token) marketplace built using the Ethereum blockchain. This DApp allows users to connect their MetaMask wallets, mint unique NFTs, and buy/sell them using ETH.
 
-**URL**: https://lovable.dev/projects/96678e7a-dd1a-4fb3-92aa-04576a46f9f9
+## 🚀 Features
 
-## How can I edit this code?
+- 🔐 MetaMask wallet integration
+- 🧾 Mint NFTs with metadata (name, image, description)
+- 💱 Buy and sell NFTs using ETH
+- 🌐 Interact with Ethereum smart contracts
+- 📦 Decentralized metadata storage (IPFS ready)
+- 🎨 Built using Solidity, Web3/Ethers.js, and modern frontend technologies
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🛠️ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/96678e7a-dd1a-4fb3-92aa-04576a46f9f9) and start prompting.
+- **Frontend:** HTML, CSS, JavaScript (or React.js)
+- **Blockchain:** Ethereum
+- **Wallet:** MetaMask
+- **Smart Contracts:** Solidity (ERC-721 standard)
+- **Libraries:** Web3.js / Ethers.js
+- **Development Tools:** Hardhat / Remix IDE
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🔧 Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js & npm
+- MetaMask extension installed
+- Ethereum testnet access (like Goerli or Sepolia)
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+git clone https://github.com/your-username/chain-verse-nexus.git
+cd chain-verse-nexus
+npm install
 ```
 
-**Edit a file directly in GitHub**
+### Running the DApp
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm start
+```
 
-**Use GitHub Codespaces**
+Make sure MetaMask is connected and set to the correct test network.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 📄 Smart Contract
 
-This project is built with:
+The smart contract is written in Solidity and follows the ERC-721 standard for NFTs. It can be deployed using Remix or Hardhat.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Example Functions
 
-## How can I deploy this project?
+- `mintNFT(address recipient, string memory tokenURI)`
+- `transferFrom(address from, address to, uint256 tokenId)`
 
-Simply open [Lovable](https://lovable.dev/projects/96678e7a-dd1a-4fb3-92aa-04576a46f9f9) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 🧪 Testing
 
-Yes, you can!
+If using Hardhat:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+npx hardhat test
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📁 Project Structure
+
+```
+.
+├── contracts/          # Solidity smart contracts
+├── src/                # Frontend code
+├── public/             # Static files
+├── scripts/            # Deployment scripts
+├── README.md
+├── package.json
+└── hardhat.config.js
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 🙌 Acknowledgements
+
+- [OpenZeppelin Contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)
+- [Ethereum](https://ethereum.org)
+- [MetaMask](https://metamask.io)
+- [IPFS](https://ipfs.io)
+```
