@@ -1,7 +1,8 @@
 
-import { Bell, Menu, Search, Wallet } from "lucide-react";
+import { Bell, Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { WalletButton } from "@/components/WalletButton";
 
 export function Navbar() {
   return (
@@ -67,10 +68,7 @@ export function Navbar() {
             <Bell className="h-4 w-4" />
             <span className="sr-only">Toggle notifications</span>
           </Button>
-          <Button size="sm" className="gap-2">
-            <Wallet className="h-4 w-4" />
-            <span>Connect Wallet</span>
-          </Button>
+          <WalletButton />
         </div>
       </div>
     </header>
