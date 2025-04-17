@@ -102,4 +102,3 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 - [Ethereum](https://ethereum.org)
 - [MetaMask](https://metamask.io)
 - [IPFS](https://ipfs.io)
-```
