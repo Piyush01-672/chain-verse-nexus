@@ -1,6 +1,5 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { BrowserProvider, Eip1193Provider } from "ethers";
+import { BrowserProvider, Eip1193Provider, parseEther } from "ethers";
 import { toast } from "sonner";
 
 declare global {
@@ -19,6 +18,8 @@ interface WalletContextType {
   isConnecting: boolean;
   connectWallet: () => Promise<void>;
   disconnectWallet: () => void;
+  sendTransaction: (to: string, amount: string) => Promise<void>;
+  balance: string;
 }
 
 const WalletContext = createContext<WalletContextType | null>(null);
@@ -28,6 +29,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   const [provider, setProvider] = useState<BrowserProvider | null>(null);
   const [chainId, setChainId] = useState<number | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
+  const [balance, setBalance] = useState("0");
 
   // Check if wallet was previously connected
   useEffect(() => {
@@ -65,6 +67,22 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     };
   }, [address]);
 
+  const updateBalance = async () => {
+    if (provider && address) {
+      try {
+        const balance = await provider.getBalance(address);
+        setBalance(balance.toString());
+      } catch (error) {
+        console.error("Error fetching balance:", error);
+      }
+    }
+  };
+
+  // Update balance when address changes
+  useEffect(() => {
+    updateBalance();
+  }, [address, provider]);
+
   const connectWallet = async () => {
     if (!window.ethereum) {
       toast.error("Wallet not found. Please install MetaMask or another Ethereum wallet");
@@ -84,11 +102,41 @@ export function WalletProvider({ children }: { children: ReactNode }) {
       localStorage.setItem("walletAddress", accounts[0]);
       
       toast.success(`Wallet connected: ${shortenAddress(accounts[0])}`);
+      
+      // Fetch initial balance
+      updateBalance();
     } catch (error) {
       console.error("Error connecting wallet:", error);
       toast.error("Could not connect to your wallet");
     } finally {
       setIsConnecting(false);
+    }
+  };
+
+  const sendTransaction = async (to: string, amount: string) => {
+    if (!provider || !address) {
+      toast.error("Please connect your wallet first");
+      return;
+    }
+
+    try {
+      const signer = await provider.getSigner();
+      const tx = await signer.sendTransaction({
+        to: to,
+        value: parseEther(amount)
+      });
+
+      toast.info("Transaction sent! Waiting for confirmation...");
+      
+      await tx.wait();
+      
+      toast.success("Transaction confirmed!");
+      
+      // Update balance after transaction
+      updateBalance();
+    } catch (error) {
+      console.error("Transaction failed:", error);
+      toast.error("Transaction failed. Please try again.");
     }
   };
 
@@ -109,6 +157,8 @@ export function WalletProvider({ children }: { children: ReactNode }) {
         isConnecting,
         connectWallet,
         disconnectWallet,
+        sendTransaction,
+        balance,
       }}
     >
       {children}
