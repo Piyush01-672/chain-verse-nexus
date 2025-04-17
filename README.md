@@ -15,12 +15,10 @@ A decentralized NFT (Non-Fungible Token) marketplace built using the Ethereum bl
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript (or React.js)
+- **Frontend:** React.js
 - **Blockchain:** Ethereum
 - **Wallet:** MetaMask
-- **Smart Contracts:** Solidity (ERC-721 standard)
 - **Libraries:** Web3.js / Ethers.js
-- **Development Tools:** Hardhat / Remix IDE
 
 ---
 
